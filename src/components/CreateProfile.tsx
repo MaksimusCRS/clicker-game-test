@@ -10,6 +10,8 @@ import React, { useEffect, useState } from "react";
 import { nameToAvatar } from "../utils";
 import { FormContainer, NameInput, CreateButton } from "../styles";
 import { UserProfileProps } from "../types/userProfileProps";
+//@ts-ignore
+import { useTelegram } from "../hooks/useTelegram.js";
 
 export const CreateProfile = ({
   userProfile,
@@ -22,6 +24,7 @@ export const CreateProfile = ({
     setErrorMessage(null);
     setInputValue(event.target.value);
   };
+    const {user, onClose} = useTelegram();
 
   useEffect(() => {
     document.title = "Create Profile - Honey Clicker";

@@ -5,7 +5,7 @@
  * @returns {string | null} The initials of the name in uppercase.
  */
 export const nameToAvatar = (name: string | null): string | null => {
-  if (name === null) {
+  if (!name) {
     return null;
   }
   const words = name.split(" ");

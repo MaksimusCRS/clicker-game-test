@@ -30,6 +30,8 @@ import { useNavigate } from "react-router-dom";
 import { AchievementsList } from "./AchievementsList";
 import { toast } from "react-toastify";
 import styled from "@emotion/styled";
+//@ts-ignore
+import { useTelegram } from "../hooks/useTelegram.js";
 export const ProfileAvatar = ({
   userProfile,
   setUserProfile,
@@ -39,15 +41,17 @@ export const ProfileAvatar = ({
   const [logoutDialog, setLogoutDialog] = useState<boolean>(false);
   const [achievementsDialog, setAchievementsDialog] = useState<boolean>(false);
   const n = useNavigate();
+    const {user, onClose} = useTelegram();
+    console.log("user", user)
   return (
     <>
       <AvatarContainer
         onClick={(event) => {
-          userProfile.name === null ? n("/") : setAnchorEl(event.currentTarget);
+            !user?.username ? n("/") : setAnchorEl(event.currentTarget);
         }}
       >
         <Tooltip
-          title={userProfile.name !== null ? userProfile.name : "No Account"}
+          title={user?.username !== null ? user?.username : "No Account"}
           placement="bottom-start"
         >
           <IconButton>
@@ -85,7 +89,7 @@ export const ProfileAvatar = ({
                   overflow: "hidden",
                 }}
               >
-                {nameToAvatar(userProfile.name)}
+                {nameToAvatar(user?.username)}
               </Avatar>
             </Badge>
           </IconButton>

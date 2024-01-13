@@ -166,7 +166,7 @@ export const Game = ({ userProfile, setUserProfile }: UserProfileProps) => {
   }, [userProfile.points]);
 
   useEffect(() => {
-    if (userProfile.name === null) {
+    if (!userProfile.name) {
       setClicks(0);
     }
   }, [userProfile]);
@@ -225,7 +225,7 @@ export const Game = ({ userProfile, setUserProfile }: UserProfileProps) => {
 
   return (
     <>
-      {userProfile.name === null ? (
+      {!userProfile.name ? (
         <CreateProfile {...userProfileProps} />
       ) : (
         <>

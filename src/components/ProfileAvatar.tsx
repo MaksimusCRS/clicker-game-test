@@ -41,13 +41,17 @@ export const ProfileAvatar = ({
   const [logoutDialog, setLogoutDialog] = useState<boolean>(false);
   const [achievementsDialog, setAchievementsDialog] = useState<boolean>(false);
   const n = useNavigate();
-  const {user, onClose} = useTelegram();
+  const {user, onClose, tg} = useTelegram();
 
   return (
     <>
       <AvatarContainer
         onClick={(event) => {
             !user?.username ? n("/") : setAnchorEl(event.currentTarget);
+            console.log('user', user);
+            console.log('tg', tg);
+            console.log('initDataUnsafe', tg?.initDataUnsafe);
+            console.log('initData', tg?.initDataUnsafe);
         }}
       >
         <Tooltip

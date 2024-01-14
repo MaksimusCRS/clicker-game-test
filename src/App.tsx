@@ -20,7 +20,6 @@ function App() {
     "userProfile"
   );
   const userProfileProps = { userProfile, setUserProfile };
-  console.log('user', user);
 
   useEffect(() => {
     tg.ready();

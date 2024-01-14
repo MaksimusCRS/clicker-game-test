@@ -41,8 +41,8 @@ export const ProfileAvatar = ({
   const [logoutDialog, setLogoutDialog] = useState<boolean>(false);
   const [achievementsDialog, setAchievementsDialog] = useState<boolean>(false);
   const n = useNavigate();
-    const {user, onClose} = useTelegram();
-    console.log("user", user)
+  const {user, onClose} = useTelegram();
+
   return (
     <>
       <AvatarContainer

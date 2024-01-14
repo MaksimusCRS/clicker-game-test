@@ -9,13 +9,23 @@ import { ThemeProvider } from "@mui/material";
 import { GlobalStyle, MuiTheme } from "./styles";
 import { ToastContainer } from "react-toastify";
 import { NotFound } from "./pages/NotFound";
+import {useEffect} from "react";
 import { MainLayout } from "./layouts/MainLayout";
+//@ts-ignore
+import { useTelegram } from "./hooks/useTelegram.js";
 function App() {
+  const {onToggleButton, tg, user} = useTelegram();
   const [userProfile, setUserProfile] = useStorageState<User>(
     defaultUserProfile,
     "userProfile"
   );
   const userProfileProps = { userProfile, setUserProfile };
+  console.log('user', user);
+
+  useEffect(() => {
+    tg.ready();
+  }, [])
+
   return (
     <ThemeProvider theme={MuiTheme}>
       <MainLayout {...userProfileProps}>

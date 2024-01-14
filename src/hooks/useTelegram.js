@@ -14,6 +14,8 @@ export function useTelegram() {
         }
     }
 
+    console.log('tg', tg);
+
     return {
         onClose,
         onToggleButton,

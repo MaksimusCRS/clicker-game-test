@@ -72,48 +72,7 @@ export const About = () => {
             without an internet connection.
           </AboutText>
 
-          <AboutText>
-            Made with 🧡 by{" "}
-            <AboutLink href="https://github.com/maciekt07" target="_blank">
-              maciekt07
-            </AboutLink>{" "}
-            in <Flag src={PLFlag} /> using:{" "}
-            {techStack.map((tech, index) => (
-              <React.Fragment key={index}>
-                <AboutLink href={tech.link} target="_blank">
-                  {tech.name}
-                </AboutLink>
-                {index !== techStack.length - 1 && ", "} &nbsp;
-              </React.Fragment>
-            ))}
-          </AboutText>
           <br />
-          <Stack spacing={2} direction="row">
-            <Button
-              href="https://github.com/maciekt07/clicker-game"
-              target="_blank"
-              variant="outlined"
-              style={{
-                fontSize: ".9rem",
-                borderRadius: 12,
-                padding: 10,
-              }}
-            >
-              <GitHub /> &nbsp; Github
-            </Button>
-            <Button
-              href="https://www.buymeacoffee.com/maciekt07"
-              target="_blank"
-              variant="outlined"
-              style={{
-                fontSize: ".9rem",
-                borderRadius: 12,
-                padding: 10,
-              }}
-            >
-              <Coffee /> &nbsp; Buy me a coffee
-            </Button>
-          </Stack>
         </AboutContainer>
         <BeeImg src={HappyBee} alt="happy bee" />
       </div>
